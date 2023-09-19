@@ -89,7 +89,7 @@ Place the spec2006 porting toolkit linux-riscv64-118.tar in the spec2006director
 ``````
 $tar -xvf linux-riscv64-118.tar
 $export SPEC_INSTALL_NOCHECK=1
-$./install.sh -u linux-riscv
+$./install.sh -u linux-riscv64
 $mv riscv.cfg config/ #If you use other config, this step can be ignored
 ``````
 
@@ -120,7 +120,7 @@ FC = gfortran
 ``````
 *Note: export SPEC_INSTALL_NOCHECK=1 can bypass regression testing for perl*
 
-#### How to use
+#### 2.2How to use
 Run the runspec command to test, common test options are as follows:
 
 ``````
@@ -141,7 +141,7 @@ Run the runspec command to test, common test options are as follows:
 (8)--copies=X limit the number of CPUs running when run rate test
 
 Just Type:
-runspec –action=build –tune=base –config=riscv.cfg int -reportable -n 3 -l
+runspec –action=build –tune=base –config=riscv.cfg --size=ref int -reportable -n 3 -l
 ``````
 
 ### 3. Unixbench
@@ -202,7 +202,7 @@ $make
 $make clean
 ``````
 
-#### How to use
+#### 4.2How to use
 
 ``````
 $make XCFLAGS="-DMULTITHREAD= x-duse_fork "//X specifies how many cores to measure
@@ -268,7 +268,7 @@ $/home/fedora/tools/gcc-riscv64-theel- fedora38- linux- gnu-10.4
 
 ``````
 $export OMP_NUM_THREADS=X// Specify how many threads to run
-$./streamResult: The command will give the result of memory bandwidth when completed
+$./stream //The command will give the result of memory bandwidth when completed
 ``````
 
 ### 2. FIO
@@ -284,7 +284,7 @@ $./configure -- cc=clang//llvm compiler
 $./configure--cc=/home/fedora/tools/gcc-riscv64-thead-fedora38- linux- gnu-10.4/bin/gcc // the directory where the compiler is located
 $./configure //gcc compiler
 $make
-$ make install
+$make install
 ``````
 
 #### How to run 64 threads
